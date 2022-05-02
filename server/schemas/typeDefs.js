@@ -11,21 +11,19 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(thoughtText: String!): Thought
+    saveBook(thoughtText: String!): User
+    removeBook(bookId: String!): User
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
   }
 
-type removeBook {
-
-  }  
 
 type User {
     _id: ID
     username: String
     email: String
     bookCount: Int
-    savedBooks:
+    savedBooks: [Book]
   }
 
 type Book {
